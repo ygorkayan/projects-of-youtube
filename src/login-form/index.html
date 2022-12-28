@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="wrapper">
+      <div class="wrapper-form">
+        <h1 class="form-title">sing in</h1>
+        <form class="form">
+          <div class="form-input-container">
+            <input class="form-input" type="text" required />
+            <i class="form-input-placeholder">Username</i>
+          </div>
+
+          <div class="form-input-container">
+            <input class="form-input" type="password" required />
+            <i class="form-input-placeholder">Password</i>
+          </div>
+
+          <div class="form-something">
+            <input type="button" class="form-something-forgot reset-input" value="Forgot Password" />
+            <input type="button" class="form-something-singup reset-input" value="Singup" />
+          </div>
+
+          <input type="button" value="Login" class="form-btn-login" />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const background = document.querySelector('.background');
+      const fragment = document.createDocumentFragment();
+
+      for (let index = 0, qtd = 500; index < qtd; index++) {
+        const span = document.createElement('span');
+        span.classList.add('square');
+        fragment.appendChild(span);
+      }
+
+      background.appendChild(fragment);
+    </script>
+  </body>
+</html>
