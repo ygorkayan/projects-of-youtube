@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Lucida Sans', sans-serif;
+}
+
+body {
+  background-color: #222;
+}
+
+.text::before {
+  content: '';
+  top: 35px;
+  position: absolute;
+  width: 470px;
+  height: 4px;
+  background-color: #f00;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #f00, 0 0 15px #f00, 0 0 30px #f00, 0 0 60px #f00;
+  transition: 0.5s;
+}
+
+.text {
+  position: relative;
+  display: inline-block;
+  top: calc(50vh - 30px);
+  left: 30vw;
+  font-size: 60px;
+  color: #404040;
+  font-weight: 800;
+}
+
+.older-year {
+  transition: 0.5s;
+  position: relative;
+  color: #f00;
+  top: 0px;
+  text-shadow: 0 0 5px #f00, 0 0 15px #f00, 0 0 30px #f00, 0 0 60px #f00;
+}
+
+.new-year {
+  transition: 0.5s;
+  position: relative;
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0, 0 0 15px #0f0, 0 0 30px #0f0, 0 0 60px #0f0;
+  left: -33.5px;
+  top: -50px;
+}
+
+.text:hover::before {
+  width: 0px;
+}
+
+.text:hover .new-year {
+  top: 0px;
+}
+
+.text:hover .older-year {
+  top: 50px;
+}
