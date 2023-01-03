@@ -1,3 +1,6 @@
 # projects-of-youtube
 
-Channel: https://www.youtube.com/@OnlineTutorialsYT
+The projects I do in this repository are from these channels
+
+Channel Online Tutorials: https://www.youtube.com/@OnlineTutorialsYT
+Channel Codeminton: https://www.youtube.com/@Codeminton

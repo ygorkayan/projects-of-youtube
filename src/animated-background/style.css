@@ -1,0 +1,90 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(#a2000a, #cf0000);
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.snow {
+  position: relative;
+  display: flex;
+}
+
+.snow span {
+  position: relative;
+  min-width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 1vh;
+  box-shadow: -100px 20px 5px #fff, 100px 20px 10px #fff;
+  animation: snowAnimation 15s linear infinite;
+  animation-duration: calc(75s / var(--i));
+}
+
+.snow span:nth-child(even) {
+  min-width: 10px;
+  height: 10px;
+}
+
+@keyframes snowAnimation {
+  0% {
+      transform: translateY(-10vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+
+
+.moon {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  left: calc(50vw - 250px);
+  border-radius: 50%;
+  top: 20px;
+}
+
+.santa {
+  position: absolute;
+  left: calc(50vw - 400px);
+  animation: santaAnimation 3.5s linear infinite;
+}
+
+@keyframes santaAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.first-tree {
+  position: absolute;
+  bottom: -8px;
+  left: -10px;
+}
+
+.second-tree {
+  position: absolute;
+  bottom: -8px;
+  left: 1126px;
+}
