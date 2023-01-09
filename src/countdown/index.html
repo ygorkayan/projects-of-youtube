@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="countdown">
+      <div class="circle day">
+        <svg class="circle-fill">
+          <circle style="--color: red" id="circle-fill-day" cx="70" Cy="70" r="95"></circle>
+        </svg>
+        <span id="number-day" class="number">00</span>
+        <span class="text">days</span>
+      </div>
+      <div class="circle hour">
+        <svg class="circle-fill">
+          <circle style="--color: blue" id="circle-fill-hour" cx="70" Cy="70" r="95"></circle>
+        </svg>
+        <span id="number-hour" class="number">00</span>
+        <span class="text">hours</span>
+      </div>
+      <div class="circle minute">
+        <svg class="circle-fill">
+          <circle style="--color: green" id="circle-fill-minute" cx="70" Cy="70" r="95"></circle>
+        </svg>
+        <span id="number-minute" class="number">00</span>
+        <span class="text">minutes</span>
+      </div>
+      <div class="circle second">
+        <svg class="circle-fill">
+          <circle style="--color: yellow" id="circle-fill-second" cx="70" Cy="70" r="95"></circle>
+        </svg>
+        <span id="number-second" class="number">00</span>
+        <span class="text">seconds</span>
+      </div>
+    </div>
+
+    <script>
+      const elementDay = document.querySelector('#number-day');
+      const elementHour = document.querySelector('#number-hour');
+      const elementMinute = document.querySelector('#number-minute');
+      const elementSecond = document.querySelector('#number-second');
+      const circleFillDay = document.querySelector('#circle-fill-day');
+      const circleFillHour = document.querySelector('#circle-fill-hour');
+      const circleFillMinute = document.querySelector('#circle-fill-minute');
+      const circleFillSecond = document.querySelector('#circle-fill-second');
+
+      const end = new Date(2023, 11, 31, 23, 59, 59);
+
+      setInterval(() => {
+        const { days, hours, minutes, seconds } = countdown(end);
+        elementDay.textContent = days;
+        elementHour.textContent = hours;
+        elementMinute.textContent = minutes;
+        elementSecond.textContent = seconds;
+        circleFillDay.style.strokeDashoffset = percentOfFill(365, days);
+        circleFillHour.style.strokeDashoffset = percentOfFill(24, hours);
+        circleFillMinute.style.strokeDashoffset = percentOfFill(60, minutes);
+        circleFillSecond.style.strokeDashoffset = percentOfFill(60, seconds);
+      }, 400);
+
+      function percentOfFill(valueOfRef, value) {
+        return 651 - (651 * value) / valueOfRef;
+      }
+
+      function countdown(end) {
+        const now = new Date();
+        let diff = end - now;
+
+        const minuteInMilleSeconds = 60 * 1000;
+        const hourInMilleSeconds = 60 * minuteInMilleSeconds;
+        const dayInMilleSeconds = 24 * hourInMilleSeconds;
+
+        const days = Math.floor(diff / dayInMilleSeconds);
+        diff -= days * dayInMilleSeconds;
+
+        const hours = Math.floor(diff / hourInMilleSeconds);
+        diff -= hours * hourInMilleSeconds;
+
+        const minutes = Math.floor(diff / minuteInMilleSeconds);
+        diff -= minutes * minuteInMilleSeconds;
+
+        const seconds = Math.floor(diff / 1000);
+
+        return { days, hours, minutes, seconds };
+      }
+    </script>
+  </body>
+</html>
